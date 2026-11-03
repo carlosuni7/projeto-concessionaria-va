@@ -1,0 +1,61 @@
+Projeto Web: Concessionaria - VA
+
+Entidades:
+
+1. Cliente
+
+id_cliente (Primary Key)
+nome
+cpf (Unique)
+rg
+cnh
+telefone
+
+2. Funcionário
+
+id_funcionario (Primary Key)
+nome
+cpf (Unique)
+rg
+cnh
+validade_cnh
+telefone
+cargo (Ex: Vendedor, Gerente de Peças)
+
+3. Categoria_Veiculo (Substitui seu rascunho de "Modelos")
+
+id_categoria (Primary Key)
+nome (Ex: SUV, Picape, Elétrico)
+
+4. Condicao_Veiculo
+
+id_condicao (Primary Key)
+nome (Ex: Novo, Usado)
+slug
+descricao
+
+5. Veiculo (Unifica Veículo, Estoque e Dados Comerciais)
+
+chassi_vin (Primary Key - O chassi já é um identificador único universal)
+id_categoria (Foreign Key)
+id_condicao (Foreign Key)
+marca
+modelo
+versao (Ex: Toyota Corolla XEI 2.0)
+ano_fabricacao
+ano_modelo
+motorizacao
+cambio
+quilometragem
+preco_custo
+preco_venda
+status_estoque (Ex: Disponível, Manutenção, Vendido)
+
+6. Venda (Tabela extra recomendada para gerar o histórico da concessionária)
+
+id_venda (Primary Key)
+id_cliente (Foreign Key)
+id_funcionario (Foreign Key)
+chassi_vin (Foreign Key)
+data_venda
+valor_final
